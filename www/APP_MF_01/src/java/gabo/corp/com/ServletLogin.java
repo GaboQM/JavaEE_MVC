@@ -34,6 +34,20 @@ public class ServletLogin extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
+           //establecer el contenido a mostrar
+           String user=request.getParameter("user");
+           
+           if(!user.equals("")){
+               out.print("<html><head><title>sc</title></head><body>");
+               out.print("<h1>Welcome: "+user+"</h1>");
+           
+               out.print("</body>"
+                   + "</html>");
+           
+                 out.close();
+           }else{
+                response.sendRedirect("ServletError?codigoError=104");
+           }
            
             
         }

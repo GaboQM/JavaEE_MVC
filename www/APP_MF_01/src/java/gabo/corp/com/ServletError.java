@@ -6,15 +6,13 @@
 package gabo.corp.com;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+
 import javax.servlet.GenericServlet;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+
 
 /**
  *
@@ -41,13 +39,23 @@ public class ServletError extends GenericServlet {
     /**
      * Returns a short description of the servlet.
      *
+     * @param req
+     * @param res
      * @return a String containing servlet description
+     * @throws javax.servlet.ServletException
+     * @throws java.io.IOException
      */
    
 
     @Override
     public void service(ServletRequest req, ServletResponse res) throws ServletException, IOException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+            String cE = req.getParameter("codigoError");
+            if(cE.equals("104")){
+                res.setContentType("text/html;charset=UTF-8");
+                res.getWriter().print("Ingrese los datos en user");
+                
+            }
     }
 
 }
